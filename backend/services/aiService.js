@@ -1,0 +1,14 @@
+import { GoogleGenAI } from "@google/genai";
+
+export const generateResponse = async (prompt) => {
+  const ai = new GoogleGenAI({
+    apiKey: process.env.GEMINI_API_KEY,
+  });
+
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: prompt,
+  });
+
+  return response.text;
+};
