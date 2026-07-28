@@ -33,7 +33,7 @@ const Login = () => {
 
       alert("Login Successful!");
 
-      navigate("/chat");
+      navigate("/dashboard");
     } catch (error) {
       alert(error.response?.data?.message || "Login Failed");
     } finally {
@@ -42,43 +42,47 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center bg-[var(--bg)] px-4 transition-all duration-300">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-lg rounded-xl p-8 w-96"
+        className="w-full max-w-md rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8 shadow-xl"
       >
-        <h1 className="text-3xl font-bold mb-6 text-center">
+        <h1 className="mb-8 text-center text-4xl font-bold text-[var(--text)]">
           Login
         </h1>
 
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Enter your email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full border p-3 rounded mb-4"
+          className="mb-4 w-full rounded-lg border border-[var(--border)] bg-transparent p-3 text-[var(--text)] placeholder:text-[var(--subtext)] focus:border-indigo-500 focus:outline-none"
         />
 
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Enter your password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full border p-3 rounded mb-6"
+          className="mb-6 w-full rounded-lg border border-[var(--border)] bg-transparent p-3 text-[var(--text)] placeholder:text-[var(--subtext)] focus:border-indigo-500 focus:outline-none"
         />
 
         <button
-          className="w-full bg-black text-white p-3 rounded"
+          type="submit"
           disabled={loading}
+          className="w-full rounded-lg bg-indigo-600 py-3 font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {loading ? "Logging in..." : "Login"}
         </button>
 
-        <p className="text-center mt-4">
+        <p className="mt-6 text-center text-[var(--subtext)]">
           Don't have an account?{" "}
-          <Link className="text-blue-600" to="/register">
+          <Link
+            to="/register"
+            className="font-semibold text-indigo-600 hover:underline"
+          >
             Register
           </Link>
         </p>
