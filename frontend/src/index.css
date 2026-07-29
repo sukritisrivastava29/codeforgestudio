@@ -1,23 +1,175 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f8fafc;
+
+  --bg: #f4f7fb;
+  --surface: #ffffff;
   --card: #ffffff;
-  --text: #0f172a;
-  --subtext: #64748b;
-  --border: #e2e8f0;
+
+  --text: #111827;
+  --subtext: #6b7280;
+
+  --border: #dbe4ee;
+
+  --primary: #0891b2;
+  --primary-dark: #0e7490;
+
+  --secondary: #059669;
+
+  --accent: #ea580c;
+
+  --success: #16a34a;
+  --danger: #dc2626;
+
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .dark {
-  --bg: #020617;
-  --card: #0f172a;
-  --text: #f8fafc;
-  --subtext: #94a3b8;
-  --border: #334155;
+
+  --bg: #0d1117;
+  --surface: #161b22;
+  --card: #1f2937;
+
+  --text: #f3f4f6;
+  --subtext: #9ca3af;
+
+  --border: #30363d;
+
+  --primary: #22d3ee;
+  --primary-dark: #06b6d4;
+
+  --secondary: #10b981;
+
+  --accent: #fb923c;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --shadow: 0 15px 40px rgba(0,0,0,.45);
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  transition: 0.3s;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
+  transition:.3s ease;
+}
+
+button{
+  cursor:pointer;
+  transition:.25s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+}
+
+input,
+textarea,
+select{
+
+  background:var(--surface);
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  transition:.25s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+  outline:none;
+
+  border-color:var(--primary);
+
+  box-shadow:0 0 0 4px rgba(34,211,238,.15);
+
+}
+
+.card{
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:18px;
+
+  box-shadow:var(--shadow);
+
+}
+
+.gradient-text{
+
+  background:linear-gradient(
+      90deg,
+      var(--primary),
+      var(--secondary)
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+}
+
+.primary-btn{
+
+  background:var(--primary);
+  color:white;
+
+  transition:.25s;
+
+}
+
+.primary-btn:hover{
+
+  background:var(--primary-dark);
+
+}
+
+.secondary-btn{
+
+  border:1px solid var(--border);
+
+  background:transparent;
+
+}
+
+.secondary-btn:hover{
+
+  background:var(--surface);
+
+}
+
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+::-webkit-scrollbar-thumb{
+  background:var(--border);
+  border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:var(--primary);
+}
+
+::selection{
+  background:var(--primary);
+  color:white;
 }
